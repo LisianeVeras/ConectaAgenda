@@ -1,0 +1,165 @@
+/* =============================================================
+   ConectaAgenda — Estilos Principais (Sumário CSS)
+
+   1. Cores e fontes
+   2. Reset e estilos globais
+   3. Menu lateral (sidebar)
+   4. Área de conteúdo principal
+   5. Componentes (cards, botões, formulários, tabelas)
+   6. Responsividade
+   ============================================================= */
+
+/*  1. CORES E FONTES */
+
+:root {
+  /* Cores principais */
+  --cor-primaria: #2B6CB0;
+  --cor-primaria-escura: #1E4F85;
+  --cor-primaria-clara: #EBF4FF;
+  --cor-secundaria: #E8833A;
+  --cor-sucesso: #2F855A;
+  --cor-perigo: #C53030;
+  --cor-aviso: #D69E2E;
+
+  /* Cores neutras */
+  --cor-fundo: #F0F4F8;
+  --cor-fundo-card: #FFFFFF;
+  --cor-texto: #2D3748;
+  --cor-texto-leve: #718096;
+  --cor-borda: #E2E8F0;
+  --cor-sidebar: #1A365D;
+
+  /* Tipografia e medidas */
+  --fonte-principal: 'Nunito', sans-serif;
+  --sidebar-largura: 260px;
+  --raio-borda: 10px;
+  --sombra-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/*   2. RESET E ESTILOS GLOBAIS  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Layout: sidebar + conteúdo */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 3. MENU LATERAL (SIDEBAR) */
+.sidebar {
+  width: var(--sidebar-largura);
+  background-color: var(--cor-sidebar);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+/* Topo do menu */
+.sidebar-header {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-header h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+/* "Agenda" em laranja */
+.sidebar-header h1 span {
+  color: var(--cor-secundaria);
+}
+.sidebar-header p {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+/* Links do menu */
+.sidebar-nav {
+  padding: 16px 0;
+  flex: 1;
+}
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 24px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+/* Hover nos links */
+.sidebar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+/* Link ativo (página atual) */
+.sidebar-nav a.ativo {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-left-color: var(--cor-secundaria);
+}
+/* Ícones */
+.sidebar-nav a .icone {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+/* Rodapé menu */
+.sidebar-footer {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.72rem;
+  opacity: 0.4;
+  text-align: center;
+}
+/* Botão hambúrguer (no celular aparece) */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+/* Overlay escuro mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
