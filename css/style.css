@@ -163,3 +163,25 @@ a {
   background: rgba(0, 0, 0, 0.5);
   z-index: 99;
 }
+
+/* 4. ÁREA DE CONTEÚDO PRINCIPAL */
+.conteudo-principal {
+  margin-left: var(--sidebar-largura);
+  padding: 32px 40px;
+  flex: 1;
+  width: calc(100% - var(--sidebar-largura));
+}
+/* Cabeçalho de cada página */
+.pagina-header {
+  margin-bottom: 28px;
+}
+.pagina-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--cor-texto);
+}
+.pagina-header p {
+  color: var(--cor-texto-leve);
+  font-size: 0.92rem;
+  margin-top: 4px;
+}
