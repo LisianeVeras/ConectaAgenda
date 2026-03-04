@@ -167,13 +167,17 @@ function fazerLogout() {
 document.addEventListener('DOMContentLoaded', () => {
   criarUsuariosPadrao();
 
-  // Se já está logado, redireciona direto
-  const sessao = buscarDados('conectaagenda_sessao');
-  if (sessao && sessao.id) {
-    if (sessao.perfil === 'aluno') {
-      window.location.href = 'agenda.html';
-    } else {
-      window.location.href = 'painel.html';
+  // Só redireciona se estiver NA PÁGINA DE LOGIN
+  const paginaAtual = window.location.pathname.split('/').pop();
+
+  if (paginaAtual === 'index.html' || paginaAtual === '') {
+    const sessao = buscarDados('conectaagenda_sessao');
+    if (sessao && sessao.id) {
+      if (sessao.perfil === 'aluno') {
+        window.location.href = 'agenda.html';
+      } else {
+        window.location.href = 'painel.html';
+      }
     }
   }
 });

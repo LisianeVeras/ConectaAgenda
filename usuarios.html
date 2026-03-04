@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaAgenda — Usuários</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <div class="sidebar-overlay"></div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Conecta<span>Agenda</span></h1>
+        <p>Agenda Escolar Digital</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="painel.html">
+          <span class="icone">🏠</span> Painel Inicial
+        </a>
+        <a href="usuarios.html" class="ativo">
+          <span class="icone">👤</span> Usuários
+        </a>
+        <a href="turmas.html">
+          <span class="icone">📚</span> Turmas
+        </a>
+        <a href="avisos.html">
+          <span class="icone">💬</span> Avisos
+        </a>
+        <a href="frequencia.html">
+          <span class="icone">📋</span> Frequência
+        </a>
+        <a href="desenvolvimento.html">
+          <span class="icone">⭐</span> Desenvolvimento
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="fazerLogout()">🚪 Sair</button>
+      </div>
+    </aside>
+
+    <main class="conteudo-principal">
+      <div class="pagina-header">
+        <h2>👤 Cadastro de Usuários</h2>
+        <p>Gerencie coordenadores, professores e alunos</p>
+      </div>
+
+      <!-- Botão novo usuário -->
+      <div style="margin-bottom: 20px;">
+        <button class="btn btn-primario" onclick="abrirFormulario()">
+          + Novo Usuário
+        </button>
+      </div>
+
+      <!-- Formulário (escondido por padrão) -->
+      <div class="card" id="formCard" style="display: none; margin-bottom: 20px;">
+        <h3 id="formTitulo">Novo Usuário</h3>
+
+        <form onsubmit="salvarUsuario(event)" style="margin-top: 16px;">
+          <input type="hidden" id="editandoId">
+
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label for="usuarioNome">Nome completo *</label>
+              <input type="text" id="usuarioNome" required placeholder="Ex: Maria da Silva">
+            </div>
+            <div class="form-grupo">
+              <label for="usuarioPerfil">Perfil *</label>
+              <select id="usuarioPerfil" required onchange="mostrarCampoTurma()">
+                <option value="">Selecione</option>
+                <option value="coordenador">Coordenador</option>
+                <option value="professor">Professor</option>
+                <option value="aluno">Aluno</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label for="usuarioId">Usuário (login) *</label>
+              <input type="text" id="usuarioId" required placeholder="Ex: aluno02, prof02">
+            </div>
+            <div class="form-grupo" id="campoTurma" style="display: none;">
+              <label for="usuarioTurma">Turma</label>
+              <input type="text" id="usuarioTurma" placeholder="Ex: 1º Ano A">
+            </div>
+          </div>
+
+          <div class="form-acoes">
+            <button type="submit" class="btn btn-primario">Salvar</button>
+            <button type="button" class="btn btn-secundario" onclick="fecharFormulario()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tabela de usuários -->
+      <div class="card">
+        <h3>Usuários Cadastrados</h3>
+        <div id="tabelaContainer" style="margin-top: 16px;">
+          <!-- Preenchido pelo JavaScript -->
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/usuarios.js"></script>
+</body>
+</html>
