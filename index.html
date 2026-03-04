@@ -3,73 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ConectaAgenda — Painel</title>
-
-   <!-- Fontes -->
+  <title>ConectaAgenda — Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="pagina-login">
 
-  <!-- Hambúrguer para visualização no celular -->
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <div class="login-container">
 
-  <!-- Fundo menu celular -->
-  <div class="sidebar-overlay"></div>
+    <!-- Logo e nome -->
+    <div class="login-header">
+      <h1>Conecta<span>Agenda</span></h1>
+      <p>Agenda Escolar Digital</p>
+    </div>
 
-  <!-- Layout: menu + conteúdo -->
-  <div class="layout">
+    <!-- Formulário de login -->
+    <form class="login-form" onsubmit="fazerLogin(event)">
 
-    <!-- *** MENU LATERAL *** -->
-    <aside class="sidebar">
-
-      <div class="sidebar-header">
-        <h1>Conecta<span>Agenda</span></h1>
-        <p>Agenda Escolar Digital</p>
+      <div class="form-grupo">
+        <label for="loginUsuario">Usuário</label>
+        <input
+          type="text"
+          id="loginUsuario"
+          placeholder="Digite sua matrícula ou id de Usuário"
+          required
+        >
       </div>
 
-      <!-- Links navegáveis -->
-      <nav class="sidebar-nav">
-        <a href="index.html" class="ativo">
-          <span class="icone">🏠</span> Painel Inicial
-        </a>
-        <a href="alunos.html">
-          <span class="icone">👩‍🎓</span> Alunos
-        </a>
-        <a href="turmas.html">
-          <span class="icone">📚</span> Turmas
-        </a>
-        <a href="recados.html">
-          <span class="icone">💬</span> Recados
-        </a>
-        <a href="frequencia.html">
-          <span class="icone">📋</span> Frequência
-        </a>
-        <a href="desenvolvimento.html">
-          <span class="icone">⭐</span> Desenvolvimento
-        </a>
-      </nav>
-
-      <div class="sidebar-footer">
-        ConectaAgenda © 2025
-      </div>
-    </aside>
-
-    <!-- *** CONTEÚDO PRINCIPAL *** -->
-    <main class="conteudo-principal">
-
-      <div class="pagina-header">
-        <h2>📊 Painel Inicial</h2>
-        <p>Visão geral da sua agenda escolar</p>
+      <div class="form-grupo">
+        <label for="loginSenha">Senha</label>
+        <input
+          type="password"
+          id="loginSenha"
+          placeholder="Senha padrão: sua matrícula ou id"
+          required
+        >
       </div>
 
-      <p>###A definir###</p>
+      <!-- Mensagem de erro (escondida por padrão) -->
+      <div class="login-erro" id="loginErro" style="display: none;">
+        Usuário ou senha incorretos.
+      </div>
 
-    </main>
+      <button type="submit" class="btn btn-primario login-btn">
+        Entrar
+      </button>
+
+    </form>
+
+    <!-- Info dos perfis de teste -->
+    <div class="login-info">
+      <p><strong>Acesso de demonstração:</strong></p>
+      <small>Coordenador: coord01 / coord01</small>
+      <small>Professor: prof01 / prof01</small>
+      <small>Aluno: aluno01 / aluno01</small>
+    </div>
 
   </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
 
 </body>
 </html>

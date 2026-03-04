@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaAgenda — Painel</title>
+
+   <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Hambúrguer para visualização no celular -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <!-- Fundo menu celular -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout: menu + conteúdo -->
+  <div class="layout">
+
+    <!-- *** MENU LATERAL *** -->
+    <aside class="sidebar">
+
+      <div class="sidebar-header">
+        <h1>Conecta<span>Agenda</span></h1>
+        <p>Agenda Escolar Digital</p>
+      </div>
+
+      <!-- Links navegáveis -->
+      <nav class="sidebar-nav">
+        <a href="index.html" class="ativo">
+          <span class="icone">🏠</span> Painel Inicial
+        </a>
+        <a href="alunos.html">
+          <span class="icone">👩‍🎓</span> Alunos
+        </a>
+        <a href="turmas.html">
+          <span class="icone">📚</span> Turmas
+        </a>
+        <a href="recados.html">
+          <span class="icone">💬</span> Recados
+        </a>
+        <a href="frequencia.html">
+          <span class="icone">📋</span> Frequência
+        </a>
+        <a href="desenvolvimento.html">
+          <span class="icone">⭐</span> Desenvolvimento
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        ConectaAgenda © 2025
+      </div>
+    </aside>
+
+    <!-- *** CONTEÚDO PRINCIPAL *** -->
+    <main class="conteudo-principal">
+
+      <div class="pagina-header">
+        <h2>📊 Painel Inicial</h2>
+        <p>Visão geral da sua agenda escolar</p>
+      </div>
+
+      <!-- Cards contadores -->
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <div class="stat-icone azul">👩‍🎓</div>
+          <div class="stat-info">
+            <h4>0</h4>
+            <p>Alunos cadastrados</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icone verde">📚</div>
+          <div class="stat-info">
+            <h4>0</h4>
+            <p>Turmas ativas</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icone laranja">💬</div>
+          <div class="stat-info">
+            <h4>0</h4>
+            <p>Recados enviados</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icone roxo">⭐</div>
+          <div class="stat-info">
+            <h4>0%</h4>
+            <p>Frequência média</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Atividades recentes -->
+      <div class="card">
+        <div class="card-header">
+          <h3>📝 Atividades Recentes</h3>
+        </div>
+        <div class="vazio">
+          <div class="vazio-icone">📭</div>
+          <p>Nenhuma atividade ainda. Comece cadastrando alunos e turmas!</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

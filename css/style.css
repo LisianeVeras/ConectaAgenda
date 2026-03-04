@@ -3,10 +3,11 @@
 
    1. Cores e fontes
    2. Reset e estilos globais
-   3. Menu lateral (sidebar)
-   4. Área de conteúdo principal
-   5. Componentes (cards, botões, formulários, tabelas)
-   6. Responsividade
+   3. Login
+   4. Menu lateral (sidebar)
+   5. Área de conteúdo principal
+   6. Componentes (cards, botões, formulários, tabelas)
+   7. Responsividade
    ============================================================= */
 
 /*  1. CORES E FONTES */
@@ -62,7 +63,102 @@ a {
   min-height: 100vh;
 }
 
-/* 3. MENU LATERAL (SIDEBAR) */
+/* 3. LOGIN */
+.pagina-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--cor-sidebar) 0%, var(--cor-primaria) 100%);
+}
+.login-container {
+  background: white;
+  border-radius: var(--raio-borda);
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.login-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cor-sidebar);
+}
+.login-header h1 span {
+  color: var(--cor-secundaria);
+}
+.login-header p {
+  font-size: 0.85rem;
+  color: var(--cor-texto-leve);
+  margin-top: 4px;
+}
+/* Campos do formulário de login */
+.login-form .form-grupo {
+  margin-bottom: 18px;
+}
+.login-form .form-grupo label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.login-form .form-grupo input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--cor-borda);
+  border-radius: 8px;
+  font-family: var(--fonte-principal);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+.login-form .form-grupo input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+}
+/* Botão entrar */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  justify-content: center;
+  margin-top: 8px;
+}
+/* Mensagem de erro */
+.login-erro {
+  background: #FED7D7;
+  color: var(--cor-perigo);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+/* Info de demonstração */
+.login-info {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cor-borda);
+  text-align: center;
+}
+.login-info p {
+  font-size: 0.82rem;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+.login-info small {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--cor-texto-leve);
+  margin-top: 4px;
+}
+
+/* 4. MENU LATERAL (SIDEBAR) */
 .sidebar {
   width: var(--sidebar-largura);
   background-color: var(--cor-sidebar);
@@ -164,7 +260,7 @@ a {
   z-index: 99;
 }
 
-/* 4. ÁREA DE CONTEÚDO PRINCIPAL */
+/* 5. ÁREA DE CONTEÚDO PRINCIPAL */
 .conteudo-principal {
   margin-left: var(--sidebar-largura);
   padding: 32px 40px;
