@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaAgenda — Turmas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <div class="sidebar-overlay"></div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Conecta<span>Agenda</span></h1>
+        <p>Agenda Escolar Digital</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="painel.html">
+          <span class="icone">🏠</span> Painel Inicial
+        </a>
+        <a href="usuarios.html">
+          <span class="icone">👤</span> Usuários
+        </a>
+        <a href="turmas.html" class="ativo">
+          <span class="icone">📚</span> Turmas
+        </a>
+        <a href="avisos.html">
+          <span class="icone">💬</span> Avisos
+        </a>
+        <a href="frequencia.html">
+          <span class="icone">📋</span> Frequência
+        </a>
+        <a href="desenvolvimento.html">
+          <span class="icone">⭐</span> Desenvolvimento
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="fazerLogout()">🚪 Sair</button>
+      </div>
+    </aside>
+
+    <main class="conteudo-principal">
+      <div class="pagina-header">
+        <h2>📚 Turmas</h2>
+        <p>Gerencie as turmas da escola</p>
+      </div>
+
+      <!-- Botão nova turma (só aparece pro coordenador) -->
+      <div id="acoesCoord" style="display: none; margin-bottom: 20px;">
+        <button class="btn btn-primario" onclick="abrirFormulario()">
+          + Nova Turma
+        </button>
+      </div>
+
+      <!-- Formulário (escondido por padrão) -->
+      <div class="card" id="formCard" style="display: none; margin-bottom: 20px;">
+        <h3 id="formTitulo">Nova Turma</h3>
+
+        <form onsubmit="salvarTurma(event)" style="margin-top: 16px;">
+          <input type="hidden" id="editandoId">
+
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label for="turmaNome">Nome da turma *</label>
+              <input type="text" id="turmaNome" required placeholder="Ex: 1º Ano A">
+            </div>
+            <div class="form-grupo">
+              <label for="turmaTurno">Turno *</label>
+              <select id="turmaTurno" required>
+                <option value="">Selecione</option>
+                <option value="Matutino">Matutino</option>
+                <option value="Vespertino">Vespertino</option>
+                <option value="Integral">Integral</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label for="turmaProfessor">Professor(a) responsável *</label>
+              <select id="turmaProfessor" required>
+                <option value="">Selecione</option>
+              </select>
+            </div>
+            <div class="form-grupo">
+              <label for="turmaSala">Sala</label>
+              <input type="text" id="turmaSala" placeholder="Ex: Sala 3">
+            </div>
+          </div>
+
+          <div class="form-acoes">
+            <button type="submit" class="btn btn-primario">Salvar</button>
+            <button type="button" class="btn btn-secundario" onclick="fecharFormulario()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tabela de turmas -->
+      <div class="card">
+        <h3>Turmas Cadastradas</h3>
+        <div id="tabelaContainer" style="margin-top: 16px;">
+          <!-- Preenchido pelo JavaScript -->
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/turmas.js"></script>
+</body>
+</html>
