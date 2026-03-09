@@ -448,3 +448,48 @@ a {
   margin-bottom: 12px;
   opacity: 0.4;
 }
+
+/* Cards contadores (dashboard) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: white;
+  border-radius: var(--raio-borda);
+  padding: 22px;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+.stat-icone {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.stat-icone.azul { background: var(--cor-primaria-clara); }
+.stat-icone.verde { background: #C6F6D5; }
+.stat-icone.laranja { background: #FEEBC8; }
+.stat-icone.roxo { background: #E9D8FD; }
+.stat-info h4 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.stat-info p {
+  font-size: 0.8rem;
+  color: var(--cor-texto-leve);
+  font-weight: 600;
+}
