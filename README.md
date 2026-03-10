@@ -44,8 +44,4 @@ Projeto de estudo e prática relacionando a bagagem já adquirida na área da ed
 
 ---
 
-## 👨‍💻 Autor
-
-Desenvolvido por **Lisiane Veras** 
-
 
