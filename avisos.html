@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaAgenda — Avisos</title>
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Hambúrguer para visualização no celular -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <!-- Fundo menu celular -->
+  <div class="sidebar-overlay"></div>
+  <!-- Layout: menu + conteúdo -->
+  <div class="layout">
+    <!-- *** MENU LATERAL *** -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Conecta<span>Agenda</span></h1>
+        <p>Agenda Escolar Digital</p>
+      </div>
+      <!-- Links navegáveis -->
+      <nav class="sidebar-nav">
+        <a href="painel.html">
+          <span class="icone">🏠</span> Painel Inicial
+        </a>
+        <a href="usuarios.html">
+          <span class="icone">👤</span> Usuários
+        </a>
+        <a href="turmas.html">
+          <span class="icone">📚</span> Turmas
+        </a>
+        <a href="avisos.html" class="ativo">
+          <span class="icone">💬</span> Avisos
+        </a>
+        <a href="frequencia.html">
+          <span class="icone">📋</span> Frequência
+        </a>
+        <a href="desenvolvimento.html">
+          <span class="icone">⭐</span> Desenvolvimento
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="fazerLogout()">🚪 Sair</button>
+      </div>
+    </aside>
+    <!-- *** CONTEÚDO PRINCIPAL *** -->
+    <main class="conteudo-principal">
+      <div class="pagina-header">
+        <h2>💬 Avisos e Tarefas</h2>
+        <p id="subtituloAvisos">Comunicados da escola</p>
+      </div>
+
+      <!-- Botão novo aviso (só coordenador e professor) -->
+      <div id="acoesPostar" style="display: none; margin-bottom: 20px;">
+        <button class="btn btn-primario" onclick="abrirFormulario()">
+          + Novo Aviso
+        </button>
+      </div>
+
+      <!-- Formulário (escondido por padrão) -->
+      <div class="card" id="formCard" style="display: none; margin-bottom: 20px;">
+        <h3 id="formTitulo">Novo Aviso</h3>
+
+        <form onsubmit="salvarAviso(event)" style="margin-top: 16px;">
+          <input type="hidden" id="editandoId">
+
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label for="avisoTitulo">Título *</label>
+              <input type="text" id="avisoTitulo" required placeholder="Ex: Reunião de pais — Março">
+            </div>
+            <div class="form-grupo">
+              <label for="avisoTipo">Tipo *</label>
+              <select id="avisoTipo" required>
+                <option value="geral">Aviso Geral</option>
+                <option value="tarefa">Tarefa / Lição</option>
+                <option value="prova">Prova / Avaliação</option>
+                <option value="evento">Evento</option>
+                <option value="urgente">Urgente</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label for="avisoTurma">Destinatário</label>
+              <select id="avisoTurma">
+                <option value="Todas">Todas as turmas</option>
+              </select>
+            </div>
+            <div class="form-grupo">
+              <label for="avisoData">Data de entrega / evento</label>
+              <input type="date" id="avisoData">
+            </div>
+          </div>
+
+          <div class="form-grupo">
+            <label for="avisoMensagem">Mensagem *</label>
+            <textarea id="avisoMensagem" required placeholder="Escreva o aviso aqui..." style="width: 100%; min-height: 100px; padding: 10px 14px; border: 2px solid var(--cor-borda); border-radius: 8px; font-family: var(--fonte-principal); font-size: 0.9rem; resize: vertical;"></textarea>
+          </div>
+
+          <div class="form-acoes">
+            <button type="submit" class="btn btn-primario">Publicar</button>
+            <button type="button" class="btn btn-secundario" onclick="fecharFormulario()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Filtros -->
+      <div class="card" id="filtrosCard" style="margin-bottom: 20px; padding: 16px;">
+        <div class="form-grid">
+          <div class="form-grupo" style="margin-bottom: 0;">
+            <label for="filtroTurma">Filtrar por turma</label>
+            <select id="filtroTurma" onchange="carregarAvisos()">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <div class="form-grupo" style="margin-bottom: 0;">
+            <label for="filtroTipo">Filtrar por tipo</label>
+            <select id="filtroTipo" onchange="carregarAvisos()">
+              <option value="">Todos</option>
+              <option value="geral">Aviso Geral</option>
+              <option value="tarefa">Tarefa / Lição</option>
+              <option value="prova">Prova / Avaliação</option>
+              <option value="evento">Evento</option>
+              <option value="urgente">Urgente</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de avisos -->
+      <div id="listaAvisos">
+        <!-- Preenchido pelo JavaScript -->
+      </div>
+
+    </main>
+  </div>
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/avisos.js"></script>
+</body>
+</html>

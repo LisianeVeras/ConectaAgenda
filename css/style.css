@@ -493,3 +493,55 @@ a {
   color: var(--cor-texto-leve);
   font-weight: 600;
 }
+
+/* Cards de avisos */
+.aviso-card {
+  border-left: 4px solid var(--cor-primaria);
+  padding: 16px;
+  margin-bottom: 12px;
+  background: var(--cor-primaria-clara);
+  border-radius: 0 8px 8px 0;
+}
+.aviso-card.tipo-urgente {
+  border-left-color: var(--cor-perigo);
+  background: #FFF5F5;
+}
+.aviso-card.tipo-prova {
+  border-left-color: var(--cor-aviso);
+  background: #FFFFF0;
+}
+.aviso-card.tipo-tarefa {
+  border-left-color: var(--cor-sucesso);
+  background: #F0FFF4;
+}
+.aviso-card.tipo-evento {
+  border-left-color: #805AD5;
+  background: #FAF5FF;
+}
+.aviso-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.aviso-header h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.aviso-corpo {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.aviso-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--cor-texto-leve);
+}
+.aviso-acoes {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+

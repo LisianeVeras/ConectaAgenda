@@ -97,11 +97,7 @@ function fazerLogin(event) {
   salvarDados('conectaagenda_sessao', sessao);
 
   // Redireciona conforme o perfil
-  if (usuarioEncontrado.perfil === 'aluno') {
-    window.location.href = 'agenda.html';
-  } else {
-    window.location.href = 'painel.html';
-  }
+  window.location.href = 'painel.html';
 }
 
 
@@ -136,11 +132,7 @@ function verificarPerfil(perfisPermitidos) {
 
   if (!perfisPermitidos.includes(sessao.perfil)) {
     // Sem permissão — redireciona
-    if (sessao.perfil === 'aluno') {
-      window.location.href = 'agenda.html';
-    } else {
-      window.location.href = 'painel.html';
-    }
+    window.location.href = 'painel.html';
     return null;
   }
 
@@ -173,11 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (paginaAtual === 'index.html' || paginaAtual === '') {
     const sessao = buscarDados('conectaagenda_sessao');
     if (sessao && sessao.id) {
-      if (sessao.perfil === 'aluno') {
-        window.location.href = 'agenda.html';
-      } else {
-        window.location.href = 'painel.html';
-      }
+      window.location.href = 'painel.html';
     }
   }
 });
