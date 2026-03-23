@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaAgenda — Frequência</title>
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Hambúrguer para visualização no celular -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <!-- Fundo menu celular -->
+  <div class="sidebar-overlay"></div>
+  <!-- Layout: menu + conteúdo -->
+  <div class="layout">
+    <!-- *** MENU LATERAL *** -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Conecta<span>Agenda</span></h1>
+        <p>Agenda Escolar Digital</p>
+      </div>
+      <!-- Links navegáveis -->
+      <nav class="sidebar-nav">
+        <a href="painel.html">
+          <span class="icone">🏠</span> Painel Inicial
+        </a>
+        <a href="usuarios.html">
+          <span class="icone">👤</span> Usuários
+        </a>
+        <a href="turmas.html">
+          <span class="icone">📚</span> Turmas
+        </a>
+        <a href="avisos.html">
+          <span class="icone">💬</span> Avisos
+        </a>
+        <a href="frequencia.html" class="ativo">
+          <span class="icone">📋</span> Frequência
+        </a>
+        <a href="desenvolvimento.html">
+          <span class="icone">⭐</span> Desenvolvimento
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="fazerLogout()">🚪 Sair</button>
+      </div>
+    </aside>
+    <!-- *** CONTEÚDO PRINCIPAL *** -->
+    <main class="conteudo-principal">
+      <div class="pagina-header">
+        <h2>📋 Frequência</h2>
+        <p id="subtituloFrequencia">Controle de presença dos alunos</p>
+      </div>
+
+      <!-- VISÃO DO PROFESSOR/COORDENADOR: seleciona turma -->
+      <div id="visaoProfessor" style="display: none;">
+
+        <!-- Seleção de turma -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="form-grid">
+            <div class="form-grupo" style="margin-bottom: 0;">
+              <label for="frequenciaTurma">Turma</label>
+              <select id="frequenciaTurma" onchange="carregarAlunosTurma()">
+                <option value="">Selecione a turma</option>
+              </select>
+            </div>
+            <div class="form-grupo" style="margin-bottom: 0;">
+              <label for="frequenciaData">Data da falta</label>
+              <input type="date" id="frequenciaData">
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de alunos da turma -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Lista de Alunos</h3>
+          </div>
+          <div id="listaAlunosTurma">
+            <div class="vazio">
+              <div class="vazio-icone">📋</div>
+              <p>Selecione uma turma para ver os alunos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISÃO DO ALUNO: vê só o próprio -->
+      <div id="visaoAluno" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h3>Minha Frequência</h3>
+          </div>
+          <div id="minhaFrequencia">
+            <!-- Preenchido pelo JavaScript -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/frequencia.js"></script>
+</body>
+</html>
